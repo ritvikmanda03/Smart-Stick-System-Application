@@ -18,7 +18,7 @@ body {
   background-color: var(--color-light-taupe);
   margin: 0;
   height: 100vh; 
-  font-family: 'Garamond', serif;
+  font-family: 'Bavex', serif;
 }
 
 .logo {
@@ -58,19 +58,31 @@ body {
 }
 
 .amplify-button {
-  background-color: #D1C7BD !important; 
-  color: #322D29 !important; 
+  background: linear-gradient(
+    to right,
+    var(--color-taupe),
+    var(--color-deep-red)
+  ) !important;
+  color: #EFE9E1 !important; 
   border-radius: 0 !important
+  
+  
 }
 
 .amplify-button:hover,
 .amplify-button:focus {
-  background-color: #72383D !important; 
+  background: linear-gradient(
+    to right,
+    var(--color-deep-red),
+    var(--color-taupe)
+  ) !important;
   color: #D1C7BD !important; 
 }
 
-
-.amplify-text {
-  color: #72383D !important;
+[data-amplify-authenticator] {
+  --amplify-components-tabs-item-active-border-color: #322D29;
+  --amplify-components-tabs-item-color: #322D29;
+  --amplify-components-tabs-item-active-color: #72383D;
+  --amplify-components-button-link-color: #72383D;
+  --amplify-components-button-link-hover: #72383D;
 }
-
