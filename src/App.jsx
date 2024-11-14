@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import './App.css';
 import {
   Authenticator,
-  ThemeProvider,
   Button,
   Heading,
   Flex,
@@ -14,16 +13,14 @@ import "@aws-amplify/ui-react/styles.css";
 import { generateClient } from "aws-amplify/data";
 import outputs from "../amplify_outputs.json";
 
-/**
- * @type {import('aws-amplify/data').Client<import('../amplify/data/resource').Schema>}
- */
-
 Amplify.configure(outputs);
 const client = generateClient({
   authMode: "userPool",
 });
 
 export default function App() {
+  const [activeTab, setActiveTab] = useState("currentRun");
+
   return (
     <Flex
       className="App"
@@ -48,12 +45,32 @@ export default function App() {
         {({ signOut }) => (
           <Flex direction="column" justifyContent="center" alignItems="center">
             <Heading level={1}>Welcome to TripleS!</Heading>
+
+            <Flex direction="row" gap="1rem" marginTop="2rem">
+              <Button
+                variation="link"
+                onClick={() => setActiveTab("currentRun")}
+                className={activeTab === "currentRun" ? "active-tab" : "tab"}
+              >
+                Current Run
+              </Button>
+              <Button
+                variation="link"
+                onClick={() => setActiveTab("history")}
+                className={activeTab === "history" ? "active-tab" : "tab"}
+              >
+                History
+              </Button>
+            </Flex>
+            
+            <Flex direction="column" alignItems="center" marginTop="2rem">
+              {activeTab === "currentRun" && <Text>This is the Current Run tab content.</Text>}
+              {activeTab === "history" && <Text>This is the History tab content.</Text>}
+            </Flex>
+
             <Button onClick={signOut} style={{ marginTop: "2rem" }}>
               Sign Out
             </Button>
-            <Text style={{ marginTop: "2rem", textAlign: "center" }}>
-              The TripleS application is brought to you by a dream team of tech-savvy masterminds and caffeine-fueled innovation: Ritvik Manda, the Lacrosse-loving logic leader; Pranav Nair, the hardware wizard with a knack for precision; and Shivam Patel, the cloud enthusiast always looking to optimize. Every morning, before diving into code and circuits, they kickstart their day with a dab or two, because why not? With their unique blend of creativity, quirky brilliance, and a dash of dabbing, they’re here to bring you an experience that’s as smooth as it is smart. So buckle up, because the future of performance tracking is here!
-            </Text>
           </Flex>
         )}
       </Authenticator>
