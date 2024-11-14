@@ -18,6 +18,7 @@ body {
   background-color: var(--color-light-taupe);
   margin: 0;
   height: 100vh; 
+  font-family: 'Garamond', serif;
 }
 
 .logo {
@@ -56,4 +57,20 @@ body {
   color: #888;
 }
 
+.amplify-button {
+  background-color: #D1C7BD !important; 
+  color: #322D29 !important; 
+  border-radius: 0 !important
+}
+
+.amplify-button:hover,
+.amplify-button:focus {
+  background-color: #72383D !important; 
+  color: #D1C7BD !important; 
+}
+
+
+.amplify-text {
+  color: #72383D !important;
+}
 
