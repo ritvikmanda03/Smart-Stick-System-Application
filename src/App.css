@@ -87,4 +87,17 @@ body {
   --amplify-components-button-link-hover: #72383D;
 }
 
+.MuiTab-root {
+  color: #322D29 !important;
+}
+
+.MuiTab-root:hover {
+  background-color: rgba(114, 56, 61, 0.1); 
   
+}
+
+.Mui-selected {
+  color:white !important;
+  background-color: rgba(114, 56, 61, 0.3) !important;
+}
+
