@@ -1,0 +1,131 @@
+{
+  "api": {
+    "readTable": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "filterData"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "auth": {
+    "notesapp": {
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "serviceType": "managed"
+    }
+  },
+  "function": {
+    "filterData": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "newTable"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_filterData_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "filterData"
+        }
+      ]
+    },
+    "AMPLIFY_function_filterData_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "filterData"
+        }
+      ]
+    },
+    "AMPLIFY_storage_newTable_arn": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "newTable"
+        }
+      ]
+    },
+    "AMPLIFY_storage_newTable_partitionKeyName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "newTable"
+        }
+      ]
+    },
+    "AMPLIFY_storage_newTable_partitionKeyType": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "newTable"
+        }
+      ]
+    },
+    "AMPLIFY_storage_newTable_region": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "newTable"
+        }
+      ]
+    },
+    "AMPLIFY_storage_newTable_tableName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "newTable"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "newTable": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB",
+      "serviceType": "imported"
+    }
+  }
+}

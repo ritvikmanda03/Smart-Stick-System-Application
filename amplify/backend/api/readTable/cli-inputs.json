@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "paths": {
+    "/currentrun": {
+      "name": "/currentrun",
+      "lambdaFunction": "filterData",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "read"
+        ]
+      }
+    }
+  }
+}
