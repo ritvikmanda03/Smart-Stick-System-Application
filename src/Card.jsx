@@ -3,10 +3,32 @@ import { Card, CardContent, Typography, Box, CardHeader, Grid } from '@mui/mater
 
 
 const StatisticsCard = () => {
+  // fetch('/api/cr')
+  // .then(response => response.json())
+  // .then(data => console.log(data))
+  // .catch(error => console.error('Error:', error));
+
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch('/api/cr')
+      .then(response => response.json())
+      .then(fetchedData => {
+        if (fetchedData && Array.isArray(fetchedData)) {
+          setData(fetchedData[0]);
+        }
+      })
+      .catch(error => console.error('Error:', error));
+  }, []); 
+
+  if (!data) {
+    return <div>LOADING...</div>;
+  }
+
   return (
-    <Card sx={{ width: 480, height: 580, backgroundColor: '#EFE9E1', fontFamily: 'Garamond, serif' }}>
+    <Card sx={{ width: 480, height: 800, backgroundColor: '#EFE9E1', fontFamily: 'Garamond, serif' }}>
       <CardHeader 
-        title={`TODO: TIMESTAMP l`}
+        title={data.timestamp}
         sx={{ 
             background: 'linear-gradient(to right, #AC9C8D, #72383D)',
             textAlign: 'center', 
@@ -20,7 +42,7 @@ const StatisticsCard = () => {
             <Typography variant="h6" sx={{ fontFamily: 'Garamond, serif' }}>Speed</Typography>
             <Box sx={{ backgroundColor: '#D1C7BD', padding: '8px', borderRadius: '2px', marginBottom: 2 }}>
               <Typography variant="body1" color="#322D29">
-                TODO: SPEED
+              {data.speed} m/s
               </Typography>
             </Box>
           </Grid>
@@ -28,7 +50,7 @@ const StatisticsCard = () => {
             <Typography variant="h6" sx={{ fontFamily: 'Garamond, serif' }}>Distance</Typography>
             <Box sx={{ backgroundColor: '#D1C7BD', padding: '8px', borderRadius: '2px', marginBottom: 2 }}>
               <Typography variant="body1" color="#322D29">
-                TODO: distance
+                {data.distance} m
               </Typography>
             </Box>
           </Grid>
@@ -38,9 +60,8 @@ const StatisticsCard = () => {
 
         <Box sx={{ marginTop: 2, marginBottom: 2 }}>
         <Typography variant="h6" sx={{ fontFamily: 'Garamond, serif' }}>Trajectory:</Typography>
-        TODO: EQUATION
         <img
-            src="/logotext.png" 
+            src={data.trajectory}
             alt="Trajectory"
             style={{ width: '100%', height: 'auto', borderRadius: '8px' }}
         />

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import './App.css';
 import {
   Authenticator,
@@ -9,7 +9,6 @@ import {
   Text,
 } from "@aws-amplify/ui-react";
 import { Amplify } from "aws-amplify";
-import { get, post, put, del } from 'aws-amplify/api';
 import "@aws-amplify/ui-react/styles.css";
 import { generateClient } from "aws-amplify/data";
 import outputs from "../amplify_outputs.json";
@@ -17,6 +16,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import StatisticsCard from "./Card";
+import StatisticsCards from "./Cards";
 
 Amplify.configure(outputs);
 const client = generateClient({
@@ -25,17 +25,7 @@ const client = generateClient({
 
 export default function App() {
 
-  async function fetchData() {
-    try {
-      const data = await get('getCD', '/cr');
-      console.log(data);
-    } catch (error) {
-      console.error('Error fetching data', error);
-    }
-  }
-  
   const [selectedTab, setSelectedTab] = useState(0);
-
   const handleTabChange = (event, newValue) => {
     setSelectedTab(newValue);
   };
@@ -45,20 +35,7 @@ export default function App() {
   };
 
   const renderH = () => {
-    fetch('https://mwi5vt7pni.execute-api.us-east-1.amazonaws.com/dev/cr')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log('Data received:', data);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
-    return <StatisticsCard/>;
+    return <StatisticsCards/>;
   };
 
   const renderS = () => {
