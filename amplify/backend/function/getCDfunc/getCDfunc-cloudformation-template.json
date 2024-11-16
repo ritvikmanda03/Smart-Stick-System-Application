@@ -55,12 +55,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "filterData",
+            "getCDfunc",
             {
               "Fn::Join": [
                 "",
                 [
-                  "filterData",
+                  "getCDfunc",
                   "-",
                   {
                     "Ref": "env"
@@ -97,12 +97,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "notesappLambdaRolee8cfcf32",
+            "notesappLambdaRole73ffe774",
             {
               "Fn::Join": [
                 "",
                 [
-                  "notesappLambdaRolee8cfcf32",
+                  "notesappLambdaRole73ffe774",
                   "-",
                   {
                     "Ref": "env"

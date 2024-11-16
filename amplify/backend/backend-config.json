@@ -1,6 +1,6 @@
 {
   "api": {
-    "readTable": {
+    "getCD": {
       "dependsOn": [
         {
           "attributes": [
@@ -8,7 +8,7 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "filterData"
+          "resourceName": "getCDfunc"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -42,7 +42,7 @@
     }
   },
   "function": {
-    "filterData": {
+    "getCDfunc": {
       "build": true,
       "dependsOn": [
         {
@@ -63,19 +63,19 @@
     }
   },
   "parameters": {
-    "AMPLIFY_function_filterData_deploymentBucketName": {
+    "AMPLIFY_function_getCDfunc_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "filterData"
+          "resourceName": "getCDfunc"
         }
       ]
     },
-    "AMPLIFY_function_filterData_s3Key": {
+    "AMPLIFY_function_getCDfunc_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "filterData"
+          "resourceName": "getCDfunc"
         }
       ]
     },

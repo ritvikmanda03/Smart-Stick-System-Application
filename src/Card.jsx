@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, CardContent, Typography, Box, CardHeader, Grid } from '@mui/material';
 
-const StatisticsCard = () => {
-  const timestamp = new Date().toLocaleString();
 
+const StatisticsCard = () => {
   return (
     <Card sx={{ width: 480, height: 580, backgroundColor: '#EFE9E1', fontFamily: 'Garamond, serif' }}>
       <CardHeader 
-        title={`${timestamp}`}
+        title={`TODO: TIMESTAMP l`}
         sx={{ 
             background: 'linear-gradient(to right, #AC9C8D, #72383D)',
             textAlign: 'center', 
@@ -21,7 +20,7 @@ const StatisticsCard = () => {
             <Typography variant="h6" sx={{ fontFamily: 'Garamond, serif' }}>Speed</Typography>
             <Box sx={{ backgroundColor: '#D1C7BD', padding: '8px', borderRadius: '2px', marginBottom: 2 }}>
               <Typography variant="body1" color="#322D29">
-                0 km/h
+                TODO: SPEED
               </Typography>
             </Box>
           </Grid>
@@ -29,7 +28,7 @@ const StatisticsCard = () => {
             <Typography variant="h6" sx={{ fontFamily: 'Garamond, serif' }}>Distance</Typography>
             <Box sx={{ backgroundColor: '#D1C7BD', padding: '8px', borderRadius: '2px', marginBottom: 2 }}>
               <Typography variant="body1" color="#322D29">
-                0 meters
+                TODO: distance
               </Typography>
             </Box>
           </Grid>
@@ -39,6 +38,7 @@ const StatisticsCard = () => {
 
         <Box sx={{ marginTop: 2, marginBottom: 2 }}>
         <Typography variant="h6" sx={{ fontFamily: 'Garamond, serif' }}>Trajectory:</Typography>
+        TODO: EQUATION
         <img
             src="/logotext.png" 
             alt="Trajectory"

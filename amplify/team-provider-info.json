@@ -13,12 +13,6 @@
       "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-notesapp-dev-83742-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
-      "function": {
-        "filterData": {
-          "deploymentBucketName": "amplify-notesapp-dev-83742-deployment",
-          "s3Key": "amplify-builds/filterData-624555522b454a4e4d6c-build.zip"
-        }
-      },
       "storage": {
         "newTable": {
           "tableName": "newTable",
@@ -31,8 +25,14 @@
       "auth": {
         "notesapp": {}
       },
+      "function": {
+        "getCDfunc": {
+          "deploymentBucketName": "amplify-notesapp-dev-83742-deployment",
+          "s3Key": "amplify-builds/getCDfunc-4b646667744476426d2b-build.zip"
+        }
+      },
       "api": {
-        "readTable": {}
+        "getCD": {}
       }
     }
   }
