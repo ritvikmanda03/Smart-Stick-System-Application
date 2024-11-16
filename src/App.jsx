@@ -64,26 +64,27 @@ export default function App() {
         }}
       />
 
-    <Box sx={{ display: 'flex', marginLeft: '-145px' }}>
-      <Tabs
-        orientation="vertical"
-        value={selectedTab}
-        onChange={handleTabChange}
-        aria-label="Vertical Tabs"
-        sx={{ borderRight: 1, borderColor: 'divider' }}
-      >
-        <Tab label="Current Run" />
-        <Tab label="History" />
-        <Tab label="Settings" />
-      </Tabs>
-      <Box sx={{ flexGrow: 1, p: 3 }}>
-        {selectedTab === 0 && renderCR()}
-        {selectedTab === 1 && renderH()}
-        {selectedTab === 2 && renderS()}
-      </Box>
-    </Box>  
+ 
     
       <Authenticator>
+        <Box sx={{ display: 'flex', marginLeft: '-145px' }}>
+          <Tabs
+            orientation="vertical"
+            value={selectedTab}
+            onChange={handleTabChange}
+            aria-label="Vertical Tabs"
+            sx={{ borderRight: 1, borderColor: 'divider' }}
+          >
+            <Tab label="Current Run" />
+            <Tab label="History" />
+            <Tab label="Settings" />
+          </Tabs>
+          <Box sx={{ flexGrow: 1, p: 3 }}>
+            {selectedTab === 0 && renderCR()}
+            {selectedTab === 1 && renderH()}
+            {selectedTab === 2 && renderS()}
+          </Box>
+        </Box>  
         {({ signOut }) => (
           <Flex direction="column" justifyContent="center" alignItems="center">
             <Heading level={1}>Welcome to TripleS!</Heading>
