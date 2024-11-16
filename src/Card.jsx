@@ -11,7 +11,7 @@ const StatisticsCard = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    fetch('/api/cr')
+    fetch('https://mwi5vt7pni.execute-api.us-east-1.amazonaws.com/dev/cr') // Full API URL
       .then(response => response.json())
       .then(fetchedData => {
         if (fetchedData && Array.isArray(fetchedData)) {
@@ -19,7 +19,8 @@ const StatisticsCard = () => {
         }
       })
       .catch(error => console.error('Error:', error));
-  }, []); 
+  }, []);
+  
 
   if (!data) {
     return <div>LOADING...</div>;
@@ -63,7 +64,7 @@ const StatisticsCard = () => {
         <img
             src={data.trajectory}
             alt="Trajectory"
-            style={{ width: '100%', height: 'auto', borderRadius: '8px' }}
+            style={{ width: '100%', height: 'auto', borderRadius: '3px' }}
         />
         </Box>
 

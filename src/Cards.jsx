@@ -65,7 +65,7 @@ const StatisticsCards = () => {
               <img
                 src={item.trajectory}
                 alt="Trajectory"
-                style={{ width: '100%', height: 'auto', borderRadius: '8px' }}
+                style={{ width: '100%', height: 'auto', borderRadius: '3px' }}
               />
             </Box>
 
